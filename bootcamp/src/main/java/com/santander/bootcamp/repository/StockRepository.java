@@ -13,13 +13,11 @@ import com.santander.bootcamp.model.Stock;
 public interface StockRepository extends JpaRepository<Stock,Long>{
 
 	Optional<Stock> findByNomeAndDate(String nome, LocalDate date);
-	
-//	@Query("SELECT stock " 
-//	+"FROM santander.tb_stock "+"WHERE date = :date AND nome = :nome AND id <> :id")
-//	Optional<Stock> findUpdate(String nome, LocalDate date, Long id);
-//	 
-//	 @Query("SELECT stock "+"FROM santander.tb_stock "
-//	 +"WHERE date = :date") 
-//	 Optional<List<Stock>> findByToday(LocalDate date);
+	//JPQL
+	@Query("SELECT stock FROM Stock stock WHERE date = :date AND nome = :nome AND id <> :id")
+	Optional<Stock> findUpdate(String nome, LocalDate date, Long id);
+ 
+	@Query("SELECT stock FROM Stock stock WHERE date = :date") 
+	Optional<List<Stock>> findByToday(LocalDate date);
 	 
 }

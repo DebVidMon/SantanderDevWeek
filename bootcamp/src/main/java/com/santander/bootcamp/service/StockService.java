@@ -41,11 +41,11 @@ public class StockService {
 	@Transactional
 	public StockDTO update(StockDTO dto) {
 		
-//		 Optional<Stock> optionalStock =
-//		 repository.findUpdate(dto.getNome(),dto.getDate(),dto.getId());
-//		 if(optionalStock.isPresent()) { throw new
-//		 StockException(MensagemUtil.JA_TEM); }
-//		 
+		 Optional<Stock> optionalStock =
+		 repository.findUpdate(dto.getNome(),dto.getDate(),dto.getId());
+		 if(optionalStock.isPresent()) { throw new
+		 StockException(MensagemUtil.JA_TEM); }
+	 
 		Stock stock = mapper.toEntity(dto);
 		repository.save(stock);
 		return mapper.toDTO(stock);
@@ -68,9 +68,9 @@ public class StockService {
 		return dto;
 	}
 	
-//	 @Transactional public List<StockDTO> findByToday() {
-//		 return repository.findByToday(LocalDate.now())
-//				 .map(mapper::toDTO).orElseThrow(NotFoundException::new); }
+ @Transactional public List<StockDTO> findByToday() {
+	 return repository.findByToday(LocalDate.now())
+			 .map(mapper::toDTO).orElseThrow(NotFoundException::new); }
 	 
 
 }
