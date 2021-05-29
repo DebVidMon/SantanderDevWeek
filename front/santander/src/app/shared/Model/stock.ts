@@ -1,10 +1,10 @@
 export class Stock {
   id: number;
-  name: string;
-  price: number;
+  nome: string;
+  preco: number;
   minimum: number;
   exclusiveMinimum: boolean;
-  variation: number;
+  variacao: number;
   date: string;
 }
 

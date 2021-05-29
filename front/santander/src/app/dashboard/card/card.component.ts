@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit  } from '@angular/core';
 import Stock from 'src/app/shared/Model/stock';
 
 
@@ -9,7 +9,7 @@ import Stock from 'src/app/shared/Model/stock';
 })
 export class CardComponent implements OnInit {
 
-  // @Input()
+  @Input()
   stock = new Stock();
 
   constructor() { }
@@ -18,8 +18,8 @@ export class CardComponent implements OnInit {
   }
 
    get variation(): string {
-    const localizedVariationString = this.stock.variation.toLocaleString();
-    const prefix = this.stock.variation > 0 ? '+' : '-';
+    const localizedVariationString = this.stock.variacao.toLocaleString();
+    const prefix = this.stock.variacao > 0 ? '+' : '-';
     return `${prefix} ${localizedVariationString.replace('-', '')}%`;
    }
 
